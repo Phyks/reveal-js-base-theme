@@ -347,6 +347,35 @@ function linkify( selector ) {
 					<h3>BY Hakim El Hattab / hakim.se</h3>
 				</section>
 
+                <section>
+                    <section><h1>Addons</h1></section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            Markdown
+                            ========
+
+                            _test_ *test* blabla
+                        </script>
+                    </section>
+                    <section>
+                        <h1>Mathjax</h1>
+                        <p>Just put some LaTeX in the slides :</p>
+                            \begin{aligned}
+                            \dot{x} & = \sigma(y-x) \\
+                            \dot{y} & = \rho x - y - xz \\
+                            \dot{z} & = -\beta z + xy
+                            \end{aligned}
+                    </section>
+                    <section>
+                        <h1>Code</h1>
+                        <pre><code data-trim>
+<section>
+    <h1>Mathjax</h1>
+</section>
+                        </code></pre>
+                    </section>
+                </section>
+
 			</div>
 
 		</div>
@@ -359,30 +388,77 @@ function linkify( selector ) {
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				controls: true,
+                // No controls in bottom right corner
+				controls: false,
+                // Display status bar
 				progress: true,
+                // Display slide number
+                slideNumber: true,
+                // Push each slide to browser history
 				history: true,
-				center: true,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
-
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+                //Enable the slide overview mode
+                overview: true,
+                // Vertical centering of slides
+                center: true,
+                // Enables touch navigation on devices with touch input
+                touch: true,
+                // Don't loop the presentation
+                loop: false,
+                // Turn on fragments
+                fragments: true,
+                // Enable slide navigation by mouse wheel
+                mouseWheel: true,
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+                // Don't open links in an iframe preview overlay
+                previewLinks: false,
+                // Transition style : default / cube / page / concave / zoom / linear / fade / none
+                transition: 'default',
+                // Transition speed : default / fast / slow
+                transitionSpeed: 'default',
+                // Transition style for full page slide backgrounds : default / none / slide / concave / convex / zoom
+                backgroundTransition: 'default',
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+                // Parallax background image
+                parallaxBackgroundImage: '',
+                // Parallax background size
+                parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+                // Theme to use
+				theme: 'phyks',
 				// Optional libraries used to extend on reveal.js
 				dependencies: [
+                    // Cross-browser shim that fully implements classList
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    // Markdown support
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    // Syntax highlight for <code> element
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    // Zoom in and out with Alt+click
 					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
+                    // Speaker notes
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    // Remote control your reveal.js presentation using a touch device
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    // MathJax
+                    { src: 'plugin/math/math.js', async: true }
+				],
+                // "Normal" default size of the presentation
+                // 800x600 since it is the lowest resolution available on videoprojectors
+                width: 800,
+                height: 600,
+                // Factor of the display size that should remain empty around the content
+                margin: 0.1,
 			});
 
+            Reveal.configure({
+                keyboard: {
+                    13: 'next', // go to the next slide when the ENTER key is pressed
+                }
+            });
 		</script>
-
 	</body>
 </html>
