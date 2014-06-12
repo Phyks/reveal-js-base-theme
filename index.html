@@ -15,7 +15,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/theme/phyks.css" id="theme">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -415,7 +415,7 @@ function linkify( selector ) {
                 // Don't open links in an iframe preview overlay
                 previewLinks: false,
                 // Transition style : default / cube / page / concave / zoom / linear / fade / none
-                transition: 'default',
+                transition: 'linear',
                 // Transition speed : default / fast / slow
                 transitionSpeed: 'default',
                 // Transition style for full page slide backgrounds : default / none / slide / concave / convex / zoom
@@ -452,6 +452,10 @@ function linkify( selector ) {
                 height: 600,
                 // Factor of the display size that should remain empty around the content
                 margin: 0.1,
+                math: {
+                    mathjax: 'plugin/math/mathjax/MathJax.js',
+                    config: 'TeX-AMS_HTML-full'
+                },
 			});
 
             Reveal.configure({
