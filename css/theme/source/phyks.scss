@@ -26,43 +26,226 @@
 }
 
 @font-face {
-  font-family: 'Lato';
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url('../../lib/font/open-sans-regular.woff') format('woff');
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url('../../lib/font/open-sans-bold.woff') format('woff');
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 400;
+    src: local('Open Sans Italic'), local('OpenSans-Italic'), url('../../lib/font/open-sans-italic.woff') format('woff');
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 700;
+    src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url('../../lib/font/open-sans-bold-italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
   font-style: normal;
   font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url('../../lib/font/lato-regular.woff') format('woff');
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url('../../lib/font/source-code-pro-regular.woff') format('woff');
 }
-
 @font-face {
-  font-family: 'Lato';
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Source Code Pro Medium'), local('SourceCodePro-Medium'), url('../../lib/font/source-code-pro-500.woff') format('woff');
+}
+@font-face {
+  font-family: 'Source Code Pro';
   font-style: normal;
   font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url('../../lib/font/lato-bold.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url('../../lib/font/lato-italic.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url('../../lib/font/lato-bolditalic.woff') format('woff');
+  src: local('Source Code Pro Bold'), local('SourceCodePro-Bold'), url('../../lib/font/source-code-pro-bold.woff') format('woff');
 }
 
 // Override theme settings (see ../template/settings.scss)
-$heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 20px 20px rgba(0,0,0,.15);
-
-// Background generator
-@mixin bodyBackground() {
-	@include radial-gradient( rgba(28,30,32,1), rgba(85,90,95,1) );
-}
-
-
+$mainFont: 'Open Sans', sans-serif;
+$codeFont: 'Source Code Pro', monospace;
+$backgroundColor: #0b5662;
+$headingTextTransform: none;
+$headingColor: #e2aa3b;
+$mainHeadingColor: white;
+$borderColor: #a05007;
+$linkColor: #e2aa3b;
+$linkColorHover: #33c067;
+$backgroundQuotes: #0e6a79;
+$selectionColor: $backgroundColor;
+$selectionBackgroundColor: white;
+$borderTableColor: white;
+$thColor: $headingColor;
 
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+::-moz-selection {
+	color: $selectionColor;
+	background: $selectionBackgroundColor;
+	text-shadow: none;
+}
+
+.reveal h1 {
+    text-transform: uppercase;
+    line-height: 1em;
+    margin-bottom: 1em;
+}
+
+.reveal .slides>section:first-child>section:first-child h1 {
+    color: $mainHeadingColor;
+    -moz-hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    word-spacing: 0.075em;
+}
+
+.reveal .slides>section:first-child>section:first-child h2 {
+    font-style: italic;
+}
+
+.reveal section:not(:first-child) h2 {
+    text-align: left;
+    border-bottom: 3px solid $borderColor;
+}
+
+.reveal h2::-moz-selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+.reveal h2::selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+.reveal .slides>section:first-child>section:first-child h2 *::-moz-selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+.reveal .slides>section:first-child>section:first-child h2 *::selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+.reveal .slides>section:first-child>section:first-child h3::-moz-selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+.reveal .slides>section:first-child>section:first-child h3::selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+.reveal .slides>section:first-child>section:first-child h3 *::-moz-selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+.reveal .slides>section:first-child>section:first-child h3 *::selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+.reveal .slides a::selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+.reveal .slides a::-moz-selection {
+	color: $selectionColor;
+	background: $headingColor;
+	text-shadow: none;
+}
+
+#summary h2 {
+    color: $mainHeadingColor;
+}
+
+#summary h2::selection {
+    color: $selectionColor;
+    background: $mainHeadingColor;
+}
+
+#summary h2::-moz-selection {
+    color: $selectionColor;
+    background: $mainHeadingColor;
+}
+
+.reveal pre {
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+/*    background-color: #0e6a79;
+    padding: 1em;*/
+}
+
+.reveal code {
+    font-family: $codeFont;
+    font-weight: 500;
+}
+
+.reveal blockquote {
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+    background-color: $backgroundQuotes;
+    padding: 1em;
+}
+
+.reveal .progress {
+    height: 0.5em;
+}
+.reveal .progress span {
+    background: #cb6512;
+}
+
+.reveal .slide-number {
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+    opacity: 0.5;
+}
+
+.reveal table {
+    margin: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.reveal table th {
+    font-weight: bold;
+    color: $thColor;
+}
+
+.reveal table th,
+.reveal table td {
+    text-align: center;
+    padding: 0.2em 0.5em;
+    border-bottom: 2px solid $borderTableColor;
+}
+
+.reveal table tr:last-child td {
+    border-bottom: none;
+}
+
+#presentable-toc li li {
+    font-style: italic;
+}
