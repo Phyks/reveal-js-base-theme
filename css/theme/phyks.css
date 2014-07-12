@@ -306,3 +306,15 @@ body {
 
 #presentable-toc li li {
   font-style: italic; }
+
+.reveal .controls {
+  left: 10px;
+  right: auto; }
+
+.reveal div.navigate-right, .reveal div.navigate-left, .reveal div.navigate-up, .reveal div.navigate-down {
+  display: none; }
+
+.reveal div.navigate-down.enabled {
+  left: 21px !important;
+  top: 76px !important;
+  display: block; }
